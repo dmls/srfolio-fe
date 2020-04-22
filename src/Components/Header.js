@@ -1,33 +1,34 @@
 import React from 'react';
-import Nav from './Nav';
 import { Slider } from 'react-burgers';
+import Nav from './Nav';
+import API from '../Util/API';
 
 class Header extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            navActive: false
+            navActive: false,
+            navItems: []
         }
+    }
 
-        this.navItems = [{
-            label: 'Home',
-            href: '#' 
-          }, {
-            label: 'Services',
-            href: '#'
-          }, {
-            label: 'About',
-            href: '#'
-          }, {
-            label: 'Contact',
-            href: '#'
-        }];
+    componentDidMount() {
+        this.initNavItems();
+    }
+
+    initNavItems() {
+        let self = this;
+        let api = new API();
+        let navItemsReq = api.getNavLinks();
+        navItemsReq.then(function(items) {
+            self.setState({navItems: items});
+        });
     }
 
     render() {
         return (
             <>
-                <Nav items={this.navItems} active={this.state.navActive} />
+                <Nav items={this.state.navItems} active={this.state.navActive} />
 
                 <div className='fpsHeader'>
                     <Slider

@@ -5,7 +5,6 @@ import {Container, Row, Col} from 'react-bootstrap';
 class General_Textarea extends React.Component {
     render() {
         let data = this.props.data;
-        console.dir(data);
         return (
             <Container fluid={data.Size === 'full_width'}>
                 <Row>

@@ -6,8 +6,6 @@ class Nav extends React.Component {
         this.state = {
             active: false
         }
-
-        this.itemElements = this.getItemElements();
     }
 
     getItemElements() {
@@ -15,7 +13,7 @@ class Nav extends React.Component {
             <>
                 {this.props.items.map(function(item, index) {
                     return (
-                        <a href={item.href} className="fpsNavItem" key={index}>
+                        <a href={item.url || '/'} className="fpsNavItem" key={index}>
                             <div className="fpsNavItem-textContainer center-vertical">
                                 <div className="fpsNavItem-text center-vertical">{item.label}</div>
                             </div>
@@ -26,21 +24,18 @@ class Nav extends React.Component {
         )
     }
 
-    getDesktopItemElements() {
-        return 
-    }
-
     render() {
+        let elements = this.getItemElements();
         return (
             <>
                 {/* desktop */}
                 <div className={'fpsNav fpsNav-desktop' + (this.props.active ? ' active' : '')}>
-                    {this.itemElements}
+                    {elements}
                 </div>
 
                 {/* mobile */}
                 <div className={'fpsNav fpsNav-mobile' + (this.props.active ? ' active' : '')}>
-                    {this.itemElements}
+                    {elements}
                 </div>
             </>
         );
