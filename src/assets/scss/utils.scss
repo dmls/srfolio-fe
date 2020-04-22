@@ -1,0 +1,9 @@
+.float-right {
+    float: right;
+}
+
+.center-vertical {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
