@@ -6,6 +6,7 @@ import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Helmet } from 'react-helmet';
 import API from './Util/API';
+import Page from './Components/Page';
 
 // Config
 window.api_url = 'http://localhost:1337';
@@ -33,6 +34,8 @@ pageData.then(function(data) {
       <Helmet>
         <title>{data.Title}</title>
       </Helmet>
+
+      <Page data={data} />
     </React.StrictMode>,
     document.getElementById('root')
   );
