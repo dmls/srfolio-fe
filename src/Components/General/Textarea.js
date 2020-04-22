@@ -1,11 +1,12 @@
 import React from 'react';
 
-class Textarea extends React.Component {
+class General_Textarea extends React.Component {
     render() {
+        console.log('test');
         return (
             <div>{this.props.data.Content}</div>
         )
     }
 }
 
-export default Textarea
+export default General_Textarea
