@@ -8,7 +8,7 @@ $slActiveAnimDurationTotal: $slActiveDelay + $slActiveAnimDuration;
 .fpsNav {
     visibility: hidden;
     display: flex;
-    position: absolute;
+    position: fixed;
     top: 0;
     overflow: hidden;
     flex-flow: row wrap;

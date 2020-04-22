@@ -1,9 +1,11 @@
 import React from 'react';
 import Header from './Header';
 
+import General_Banner from './General/Banner';
 import General_Textarea from './General/Textarea';
 
 const componentsByName = {
+    'General_Banner': General_Banner,
     'General_Textarea': General_Textarea
 }
 

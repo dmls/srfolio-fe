@@ -10,7 +10,7 @@ import API from './Util/API';
 import Page from './Components/Page';
 
 // Config
-window.api_url = 'http://localhost:1337';
+window.cms_url = 'http://localhost:1337';
 
 // Get requested page data
 let pageData = new Promise(function(resolve) {
