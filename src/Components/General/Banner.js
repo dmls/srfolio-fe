@@ -20,14 +20,16 @@ class General_Banner extends React.Component {
                         </Col>
                     </Row>
 
-                    {data.CTA_Label !== undefined && 
-                        <Row>
-                            <Button 
-                                href={data.CTA_URL || ''}
-                                target="_blank"
-                            >
-                                {data.CTA_Label}
-                            </Button>
+                    {data.CTA_Label !== null && 
+                        <Row className="my-4">
+                            <Col>
+                                <Button 
+                                    href={data.CTA_URL || ''}
+                                    target="_blank"
+                                >
+                                    {data.CTA_Label}
+                                </Button>
+                            </Col>
                         </Row>
                     }
                 </Col>
