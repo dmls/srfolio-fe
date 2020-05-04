@@ -4,7 +4,6 @@ import {Container, Row, Col, Button} from 'react-bootstrap';
 class General_Banner extends React.Component {
     render() {
         let data = this.props.data;
-        console.dir(data);
         return (
             <Container 
                 className="banner text-center text-white"
