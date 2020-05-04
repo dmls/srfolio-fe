@@ -15,7 +15,7 @@ window.cms_url = 'http://localhost:1337';
 // Get requested page data
 let pageData = new Promise(function(resolve) {
   let api = new API();
-  let pageUid = window.location.pathname;
+  let pageUid = window.location.pathname.substr(1);
 
   api.getPage(pageUid).then(function(data) {
     if (data !== undefined) {
