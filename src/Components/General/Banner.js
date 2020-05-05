@@ -27,7 +27,7 @@ class General_Banner extends React.Component {
                             <Col>
                                 <Button 
                                     href={data.CTA_URL || ''}
-                                    target="_blank"
+                                    target={data.CTA_Newtab ? '_blank' : ''}
                                 >
                                     {data.CTA_Label}
                                 </Button>
