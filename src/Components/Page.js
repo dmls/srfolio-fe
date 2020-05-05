@@ -2,11 +2,15 @@ import React from 'react';
 import Header from './Header';
 
 import General_Banner from './General/Banner';
+import General_Cardgallery from './General/Cardgallery';
 import General_Textarea from './General/Textarea';
+import General_Widecard from './General/Widecard';
 
 const componentsByName = {
     'General_Banner': General_Banner,
-    'General_Textarea': General_Textarea
+    'General_Cardgallery': General_Cardgallery,
+    'General_Textarea': General_Textarea,
+    'General_Widecard': General_Widecard
 }
 
 class Page extends React.Component {
