@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, CardGroup, Card } from 'react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 
 class General_Cardgallery extends React.Component {
     render() {
