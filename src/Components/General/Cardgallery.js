@@ -12,7 +12,7 @@ class General_Cardgallery extends React.Component {
                     {
                         data.Cardsingle.map(function(card, index) {
                             return (
-                                <Col className={'mb-5 col-12 col-sm-' + colWidth}>
+                                <Col key={index} className={'mb-5 col-12 col-sm-' + colWidth}>
                                     <Card>
                                         <Card.Img src={window.cms_url + card.Img.url} />
                                         <Card.Body>
