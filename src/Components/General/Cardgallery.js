@@ -20,7 +20,6 @@ class General_Cardgallery extends React.Component {
                                             <Card.Text>{card.Content}</Card.Text>
                                         </Card.Body>
                                     </Card>
-                                    {console.dir(card.Img.url)}
                                 </Col>
                             )
                         })

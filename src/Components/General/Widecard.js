@@ -4,7 +4,7 @@ import { Container, Row, Col, Image } from 'react-bootstrap';
 class General_Widecard extends React.Component {
     render() {
         let data = this.props.data;
-        console.dir(data);
+        
         return (
             <Container className="my-5">
                 <Row>
