@@ -8,9 +8,11 @@ class General_Banner extends React.Component {
             <Container 
                 className="banner text-center text-white"
                 fluid
-                style={{
-                    background: 'url("' + window.cms_url + data.Image.url + '")'
-                }}
+                style={
+                    data.Darken ?
+                    {background: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(' + window.cms_url + data.Image.url + ') no-repeat center center fixed'} :
+                    {background: 'url("' + window.cms_url + data.Image.url + '")'}
+                }
             >
                 <Col className="center-vertical">
                     <Row>
