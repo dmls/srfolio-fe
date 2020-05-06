@@ -14,7 +14,7 @@ class General_Widecard extends React.Component {
                         </Col>
                     }
 
-                    <Col className="col-12 col-sm-8">
+                    <Col className="col-12 col-sm-8 my-4">
                         <div className="center-vertical">
                             <Row>
                                 <Col>
