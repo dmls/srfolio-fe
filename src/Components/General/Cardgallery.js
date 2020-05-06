@@ -1,4 +1,5 @@
 import React from 'react';
+import marked from 'marked';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 
 class General_Cardgallery extends React.Component {
@@ -17,7 +18,10 @@ class General_Cardgallery extends React.Component {
                                         <Card.Img src={window.cms_url + card.Img.url} />
                                         <Card.Body>
                                             <Card.Title>{card.Heading}</Card.Title>
-                                            <Card.Text>{card.Content}</Card.Text>
+                                            <Card.Text dangerouslySetInnerHTML={
+                                            {__html: marked(card.Text)}
+                                            }>
+                                            </Card.Text>
                                         </Card.Body>
                                     </Card>
                                 </Col>
