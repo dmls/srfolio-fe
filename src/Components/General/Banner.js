@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import {Container, Row, Col, Button} from 'react-bootstrap';
 
 class General_Banner extends React.Component {
@@ -35,6 +37,10 @@ class General_Banner extends React.Component {
                         </Row>
                     }
                 </Col>
+
+                {data.Arrow && 
+                    <FontAwesomeIcon className="bannerArrow" icon={faChevronDown} size="4x" />
+                }
             </Container>
         )
     }
