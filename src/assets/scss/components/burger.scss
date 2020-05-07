@@ -1,0 +1,12 @@
+
+.BurgerInner, .BurgerInner:before, .BurgerInner:after {
+    background-color: $white !important;
+}
+
+.BurgerActive {
+    .BurgerInner, 
+    .BurgerInner::before, 
+    .BurgerInner::after {
+        background-color: $white !important;
+    }
+}

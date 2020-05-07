@@ -1,0 +1,155 @@
+$navBg: rgba(18, 19, 23, .8);
+$navTextColor: $white;
+
+$slActiveDelay: .2s;
+$slActiveAnimDuration: .5s;
+$slActiveAnimDurationTotal: $slActiveDelay + $slActiveAnimDuration;
+
+.fpsNav {
+    visibility: hidden;
+    display: flex;
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+    flex-flow: row wrap;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    z-index: 80;
+    text-transform: uppercase;
+    font-size: 2rem;
+
+    a {
+        color: $navTextColor;
+        text-decoration: none;
+        font-weight: bold;
+    }
+}
+
+$fpsNavItemBorderActive: 2px solid $white;
+$fpsNavItemBorderInactive: none;
+
+.fpsNav-desktop {
+    transition: visibility $slActiveAnimDuration linear;
+
+    .fpsNavItem {
+        flex: 1;
+        position: relative;
+        border-left: $fpsNavItemBorderActive;
+        margin-right: -1px;
+        overflow: hidden;
+        transform: skewX(-25deg);
+
+        animation-name: fpsNavItem-inactive;
+        animation-duration: 0s;
+        -webkit-animation-delay: $slActiveAnimDurationTotal;
+        animation-delay: $slActiveAnimDurationTotal;
+        animation-fill-mode: forwards;
+        
+        &:last-child {
+            border-right: $fpsNavItemBorderActive;
+        }
+    }
+
+    .fpsNavItem-textContainer {
+        position: absolute;
+        width:100%;
+        background: $navBg;
+        border-left: 2px solid $white;
+        height: 100%;
+
+        animation-name: fpsNavItem-textContainer-inactive;
+        animation-duration: $slActiveAnimDuration;
+        animation-fill-mode: backwards;
+    }
+
+    .fpsNavItem-text {
+        transform: skewX(25deg);
+    }
+
+    &.active {
+        visibility: visible;
+
+        .fpsNavItem {
+            animation-name: fpsNavItem-active;
+            animation-duration: 0s;
+            animation-fill-mode: forwards;
+        }
+
+        .fpsNavItem-textContainer {
+            animation-name: fpsNavItem-textContainer-active;
+            animation-duration: $slActiveAnimDuration;
+            -webkit-animation-delay: $slActiveDelay;
+            animation-delay: $slActiveDelay;
+            animation-fill-mode: backwards;
+        }
+    }
+}
+
+@keyframes fpsNavItem-active {
+    from {
+        border-left: $fpsNavItemBorderActive;
+    }
+    to {
+        border-left: $fpsNavItemBorderInactive;
+    }
+}
+
+@keyframes fpsNavItem-inactive {
+    from {
+        border-left: $fpsNavItemBorderInactive;
+    }
+    to {
+        border-left: $fpsNavItemBorderActive;
+    }
+}
+
+$inactiveTextContainPosRight: -101%;
+$activeTextContainPosRight: -1px;
+
+@keyframes fpsNavItem-textContainer-active {
+    from {
+        right: $inactiveTextContainPosRight;
+    }
+    to {
+        right: $activeTextContainPosRight;
+    }
+}
+
+@keyframes fpsNavItem-textContainer-inactive {
+    from {
+        right: $activeTextContainPosRight;
+    }
+    to {
+        right: $inactiveTextContainPosRight;
+    }
+}
+
+.fpsNav-mobile {
+    background: $navBg;
+
+    &.active {
+        display: none;
+    }
+
+    .fpsNavItem {
+        width: 100%;
+        border-bottom: 1px solid $white;
+    }
+}
+
+@media screen and (max-width: $mobileBreak) {
+    .fpsNav-desktop {
+        &.active {
+            visibility: hidden;
+        }
+    }
+
+    .fpsNav-mobile {
+        &.active {
+            display: flex;
+            visibility: visible;
+        }
+    }
+}

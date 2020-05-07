@@ -2,18 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 
-import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.scss';
 import { Helmet } from 'react-helmet';
+
 import API from './Util/API';
+import Page from './Components/Page';
 
 // Config
-window.api_url = 'http://localhost:1337';
+window.cms_url = 'http://localhost:1337';
 
 // Get requested page data
 let pageData = new Promise(function(resolve) {
   let api = new API();
-  let pageUid = window.location.pathname;
+  let pageUid = window.location.pathname.substr(1);
 
   api.getPage(pageUid).then(function(data) {
     if (data !== undefined) {
@@ -33,6 +35,8 @@ pageData.then(function(data) {
       <Helmet>
         <title>{data.Title}</title>
       </Helmet>
+
+      <Page data={data} />
     </React.StrictMode>,
     document.getElementById('root')
   );
